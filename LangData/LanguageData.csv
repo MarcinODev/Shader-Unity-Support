@@ -1,0 +1,80 @@
+﻿abs( x ) @abs( x ) @Absolute value of x .
+acos( x ) @acos( x ) @Arccosine of x in range [0, p], x in [–1, 1].
+all( x ) @all( x ) @@Returns true if every component of x is not equal to 0.
+Returns false otherwise.@
+any( x ) @any( x ) @@Returns true if any component of x is not equal to 0.
+Returns false otherwise.@
+asin( x ) @asin( x ) @Arcsine of x in range [–p/2, p/2]; x should be in [–1, 1].
+atan( x ) @atan( x ) @Arctangent of x in range [–p/2, p/2].
+atan2( y , x ) @atan2( y , x ) @Arctangent of y / x in range [–p, p].
+ceil( x ) @ceil( x ) @Smallest integer not less than x .
+clamp( x , a , b ) @clamp( x , a , b ) @@x clamped to the range [ a , b ] as follows:
+Returns a if x is less than a .
+Returns b if x is greater than b .
+Returns x otherwise.@
+cos( x ) @cos( x ) @Cosine of x .
+cosh( x ) @cosh( x ) @Hyperbolic cosine of x .
+cross( A , B ) @cross( A , B ) @@Cross product of vectors A and B ;
+A and B must be three-component vectors.@
+degrees( x ) @degrees( x ) @Radian-to-degree conversion.
+determinant( M ) @determinant( M ) @Determinant of matrix M .
+dot( A , B ) @dot( A , B ) @Dot product of vectors A and B .
+exp( x ) @exp( x ) @Exponential function e x .
+exp2( x ) @exp2( x ) @Exponential function 2 x .
+floor( x ) @floor( x ) @Largest integer not greater than x .
+fmod( x , y ) @fmod( x , y ) @@Remainder of x / y , with the same sign as x .
+If y is 0, the result is implementation-defined.@
+frac( x ) @frac( x ) @Fractional part of x .
+frexp( x , out exp ) @frexp( x , out exp ) @@Splits x into a normalized fraction in the interval [?, 1), which is returned, and a power of 2, which is stored in exp .
+If x is 0, both parts of the result are 0.@
+isfinite( x ) @isfinite( x ) @Returns true if x is finite.
+isinf( x ) @isinf( x ) @Returns true if x is infinite.
+isnan( x ) @isnan( x ) @Returns true if x is NaN (Not a Number).
+ldexp( x , n ) @ldexp( x , n ) @x x 2 n .
+lerp( a , b , f ) @lerp( a , b , f ) @@Linear interpolation:
+(1 – f )* a + b * f 
+where a and b are matching vector or scalar types. f can be either a scalar or a vector of the same type as a and b .@
+lit( NdotL , NdotH , m ) @lit( NdotL , NdotH , m ) @@Computes lighting coefficients for ambient, diffuse, and specular light contributions.
+Expects the NdotL parameter to contain N • L and the NdotH parameter to contain N • H .
+Returns a four-component vector as follows:
+The x component of the result vector contains the ambient coefficient, which is always 1.0.
+The y component contains the diffuse coefficient, which is 0 if ( N • L ) < 0; otherwise ( N • L ).
+The z component contains the specular coefficient, which is 0 if either ( N • L ) < 0 or ( N • H ) < 0; ( N • H ) m otherwise.
+The w component is 1.0.
+There is no vectorized version of this function.@
+log( x ) @log( x ) @Natural logarithm ln( x ) ; x must be greater than 0.
+log2( x ) @log2( x ) @Base 2 logarithm of x ; x must be greater than 0.
+log10( x ) @log10( x ) @Base 10 logarithm of x ; x must be greater than 0.
+max( a , b ) @max( a , b ) @Maximum of a and b .
+min( a , b ) @min( a , b ) @Minimum of a and b .
+modf( x , out ip ) @modf( x , out ip ) @@Splits x into integral and fractional parts, each with the same sign as x .
+Stores the integral part in ip and returns the fractional part.@
+mul( M , N ) @mul( M , N ) @@Matrix product of matrix M and matrix N , as shown below:
+If M has size A x B , and N has size B x C , returns a matrix of size A x C .@
+mul( M , v ) @mul( M , v ) @@Product of matrix M and column vector v , as shown below:
+If M is an A x B matrix and v is a B x 1 vector, returns an A x 1 vector.@
+mul( v , M ) @mul( v , M ) @@Product of row vector v and matrix M , as shown below:
+If v is a 1 x A vector and M is an A x B matrix, returns a 1 x B vector.@
+noise( x ) @noise( x ) @Either a one-, two-, or three-dimensional noise function, depending on the type of its argument. The returned value is between 0 and 1, and is always the same for a given input value.
+pow( x , y ) @pow( x , y ) @xy .
+radians( x ) @radians( x ) @Degree-to-radian conversion.
+round( x ) @round( x ) @Closest integer to x .
+rsqrt( x ) @rsqrt( x ) @Reciprocal square root of x ; x must be greater than 0.
+saturate( x ) @saturate( x ) @Clamps x to the [0, 1] range.
+sign( x ) @sign( x ) @1 if x > 0; –1 if x < 0; 0 otherwise.
+sin( x ) @sin( x ) @Sine of x .
+sincos(float x , out s , out c ) @sincos(float x , out s , out c ) @@s is set to the sine of x , and c is set to the cosine of x .
+If both sin( x ) and cos( x ) are needed, this function is more efficient than calculating each individually.@
+sinh( x ) @sinh( x ) @Hyperbolic sine of x .
+smoothstep( min , max , x ) @smoothstep( min , max , x ) @@For values of x between min and max , returns a smoothly varying value that ranges from 0 at x = min to 1 at x = max .
+x is clamped to the range [ min , max ] and then the interpolation formula is evaluated:
+–2*(( x – min )/( max – min ))3 + 
+3*(( x – min )/( max – min ))2 @
+step( a , x ) @step( a , x ) @@0 if x < a ;
+1 if x >= a .@
+sqrt( x ) @sqrt( x ) @@Square root of x ;
+x must be greater than 0.@
+tan( x ) @tan( x ) @Tangent of x .
+tanh( x ) @tanh( x ) @Hyperbolic tangent of x .
+transpose( M ) @transpose( M ) @@Matrix transpose of matrix M .
+If M is an A x B matrix, the transpose of M is a B x A matrix whose first column is the first row of M , whose second column is the second row of M , whose third column is the third row of M , and so on@

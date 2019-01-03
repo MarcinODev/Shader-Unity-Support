@@ -1,0 +1,32 @@
+﻿1.0
+-highlighting
+-simple code completion
+
+1.02
+-fixed some incompatibility problems while using another shader code completion/highlight tools
+-non-case sensitive search
+
+1.03
+-keywords highlighting
+-better code completion
+-supports cginc
+-code completion in shader for opened cginc files
+-braces matching
+
+1.04
+-some issue fixes
+-highlighting for .compute files
+
+1.05
+-better sorting(current file params more important)
+
+1.10
+-support for VS 2017
+-fixed some sorting issues
+-added instant code completion tooltip
+
+1.11
+-fixed auto-completion issue on any button clicked
+
+1.12 
+-removed 1 prerequisite

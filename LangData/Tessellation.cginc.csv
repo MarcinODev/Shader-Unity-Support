@@ -1,0 +1,189 @@
+#ifndef@#ifndef@Example: #ifndef TESSELLATION_CGINC_INCLUDED
+TESSELLATION_CGINC_INCLUDED@TESSELLATION_CGINC_INCLUDED@Example: #ifndef TESSELLATION_CGINC_INCLUDED
+TESSELLATION_CGINC_INCLUDED@TESSELLATION_CGINC_INCLUDED@Body: #define TESSELLATION_CGINC_INCLUDED
+"UnityShaderVariables.cginc"//----utilityfunctionsfloatUnityCalcDistanceTessFactor(float4vertex,floatminDist,floatmaxDist,floattess)@"UnityShaderVariables.cginc"// ---- utility functionsfloat UnityCalcDistanceTessFactor (float4 vertex, float minDist, float maxDist, float tess)@@Body: #include "UnityShaderVariables.cginc"
+// ---- utility functions
+float UnityCalcDistanceTessFactor (float4 vertex, float minDist, float maxDist, float tess)
+{
+float3 wpos = mul(_Object2World,vertex).xyz;
+float dist = distance (wpos, _WorldSpaceCameraPos);
+float f = clamp(1.0 - (dist - minDist) / (maxDist - minDist), 0.01, 1.0) * tess;
+return f;
+}
+@
+UnityCalcTriEdgeTessFactors(float3triVertexFactors)@UnityCalcTriEdgeTessFactors (float3 triVertexFactors)@@Body: float4 UnityCalcTriEdgeTessFactors (float3 triVertexFactors)
+{
+float4 tess;
+tess.x = 0.5 * (triVertexFactors.y + triVertexFactors.z);
+tess.y = 0.5 * (triVertexFactors.x + triVertexFactors.z);
+tess.z = 0.5 * (triVertexFactors.x + triVertexFactors.y);
+tess.w = (triVertexFactors.x + triVertexFactors.y + triVertexFactors.z) / 3.0f;
+return tess;
+}
+@
+UnityCalcEdgeTessFactor(float3wpos0,float3wpos1,floatedgeLen)@UnityCalcEdgeTessFactor (float3 wpos0, float3 wpos1, float edgeLen)@@Body: float UnityCalcEdgeTessFactor (float3 wpos0, float3 wpos1, float edgeLen)
+{
+// distance to edge center
+float dist = distance (0.5 * (wpos0+wpos1), _WorldSpaceCameraPos);
+// length of the edge
+float len = distance(wpos0, wpos1);
+// edgeLen is approximate desired size in pixels
+float f = max(len * _ScreenParams.y / (edgeLen * dist), 1.0);
+return f;
+}
+@
+UnityDistanceFromPlane(float3pos,float4plane)@UnityDistanceFromPlane (float3 pos, float4 plane)@@Body: float UnityDistanceFromPlane (float3 pos, float4 plane)
+{
+float d = dot (float4(pos,1.0f), plane);
+return d;
+}
+@
+Returns@Returns@Example: // Returns true if triangle with given 3 world positions is outside of camera's view frustum.
+true@true@Example: // Returns true if triangle with given 3 world positions is outside of camera's view frustum.
+triangle@triangle@Example: // Returns true if triangle with given 3 world positions is outside of camera's view frustum.
+with@with@Example: // Returns true if triangle with given 3 world positions is outside of camera's view frustum.
+given@given@Example: // Returns true if triangle with given 3 world positions is outside of camera's view frustum.
+world@world@Example: // Returns true if triangle with given 3 world positions is outside of camera's view frustum.
+positions@positions@Example: // Returns true if triangle with given 3 world positions is outside of camera's view frustum.
+outside@outside@Example: // Returns true if triangle with given 3 world positions is outside of camera's view frustum.
+camera's@camera's@Example: // Returns true if triangle with given 3 world positions is outside of camera's view frustum.
+view@view@Example: // Returns true if triangle with given 3 world positions is outside of camera's view frustum.
+frustum@frustum@Example: // Returns true if triangle with given 3 world positions is outside of camera's view frustum.
+cullEps@cullEps@Example: // cullEps is distance outside of frustum that is still considered to be inside (i.e. max displacement)
+distance@distance@Example: // cullEps is distance outside of frustum that is still considered to be inside (i.e. max displacement)
+outside@outside@Example: // cullEps is distance outside of frustum that is still considered to be inside (i.e. max displacement)
+frustum@frustum@Example: // cullEps is distance outside of frustum that is still considered to be inside (i.e. max displacement)
+that@that@Example: // cullEps is distance outside of frustum that is still considered to be inside (i.e. max displacement)
+still@still@Example: // cullEps is distance outside of frustum that is still considered to be inside (i.e. max displacement)
+considered@considered@Example: // cullEps is distance outside of frustum that is still considered to be inside (i.e. max displacement)
+inside@inside@Example: // cullEps is distance outside of frustum that is still considered to be inside (i.e. max displacement)
+displacement@displacement@Example: // cullEps is distance outside of frustum that is still considered to be inside (i.e. max displacement)
+UnityWorldViewFrustumCull(float3wpos0,float3wpos1,float3wpos2,floatcullEps)@UnityWorldViewFrustumCull (float3 wpos0, float3 wpos1, float3 wpos2, float cullEps)@@Body: bool UnityWorldViewFrustumCull (float3 wpos0, float3 wpos1, float3 wpos2, float cullEps)
+{
+float4 planeTest;
+// left
+planeTest.x = (( UnityDistanceFromPlane(wpos0, unity_CameraWorldClipPlanes[0]) > -cullEps) ? 1.0f : 0.0f ) +
+				  (( UnityDistanceFromPlane(wpos1, unity_CameraWorldClipPlanes[0]) > -cullEps) ? 1.0f : 0.0f ) +
+				  (( UnityDistanceFromPlane(wpos2, unity_CameraWorldClipPlanes[0]) > -cullEps) ? 1.0f : 0.0f );
+// right
+planeTest.y = (( UnityDistanceFromPlane(wpos0, unity_CameraWorldClipPlanes[1]) > -cullEps) ? 1.0f : 0.0f ) +
+				  (( UnityDistanceFromPlane(wpos1, unity_CameraWorldClipPlanes[1]) > -cullEps) ? 1.0f : 0.0f ) +
+				  (( UnityDistanceFromPlane(wpos2, unity_CameraWorldClipPlanes[1]) > -cullEps) ? 1.0f : 0.0f );
+// top
+planeTest.z = (( UnityDistanceFromPlane(wpos0, unity_CameraWorldClipPlanes[2]) > -cullEps) ? 1.0f : 0.0f ) +
+				  (( UnityDistanceFromPlane(wpos1, unity_CameraWorldClipPlanes[2]) > -cullEps) ? 1.0f : 0.0f ) +
+				  (( UnityDistanceFromPlane(wpos2, unity_CameraWorldClipPlanes[2]) > -cullEps) ? 1.0f : 0.0f );
+// bottom
+planeTest.w = (( UnityDistanceFromPlane(wpos0, unity_CameraWorldClipPlanes[3]) > -cullEps) ? 1.0f : 0.0f ) +
+				  (( UnityDistanceFromPlane(wpos1, unity_CameraWorldClipPlanes[3]) > -cullEps) ? 1.0f : 0.0f ) +
+				  (( UnityDistanceFromPlane(wpos2, unity_CameraWorldClipPlanes[3]) > -cullEps) ? 1.0f : 0.0f );
+// has to pass all 4 plane tests to be visible
+return !all (planeTest);
+}
+@
+functions@functions@Example: // ---- functions that compute tessellation factors
+that@that@Example: // ---- functions that compute tessellation factors
+compute@compute@Example: // ---- functions that compute tessellation factors
+tessellation@tessellation@Example: // ---- functions that compute tessellation factors
+factors@factors@Example: // ---- functions that compute tessellation factors
+Distance@Distance@Example: // Distance based tessellation:
+based@based@Example: // Distance based tessellation:
+tessellation@tessellation@Example: // Distance based tessellation:
+Tessellation@Tessellation@Example: // Tessellation level is "tess" before "minDist" from camera, and linearly decreases to 1
+level@level@Example: // Tessellation level is "tess" before "minDist" from camera, and linearly decreases to 1
+tess@tess@Example: // Tessellation level is "tess" before "minDist" from camera, and linearly decreases to 1
+before@before@Example: // Tessellation level is "tess" before "minDist" from camera, and linearly decreases to 1
+minDist@minDist@Example: // Tessellation level is "tess" before "minDist" from camera, and linearly decreases to 1
+from@from@Example: // Tessellation level is "tess" before "minDist" from camera, and linearly decreases to 1
+camera@camera@Example: // Tessellation level is "tess" before "minDist" from camera, and linearly decreases to 1
+linearly@linearly@Example: // Tessellation level is "tess" before "minDist" from camera, and linearly decreases to 1
+decreases@decreases@Example: // Tessellation level is "tess" before "minDist" from camera, and linearly decreases to 1
+maxDist@maxDist@Example: // up to "maxDist" from camera.
+from@from@Example: // up to "maxDist" from camera.
+camera@camera@Example: // up to "maxDist" from camera.
+UnityDistanceBasedTess(float4v0,float4v1,float4v2,floatminDist,floatmaxDist,floattess)@UnityDistanceBasedTess (float4 v0, float4 v1, float4 v2, float minDist, float maxDist, float tess)@@Body: float4 UnityDistanceBasedTess (float4 v0, float4 v1, float4 v2, float minDist, float maxDist, float tess)
+{
+float3 f;
+f.x = UnityCalcDistanceTessFactor (v0,minDist,maxDist,tess);
+f.y = UnityCalcDistanceTessFactor (v1,minDist,maxDist,tess);
+f.z = UnityCalcDistanceTessFactor (v2,minDist,maxDist,tess);
+return UnityCalcTriEdgeTessFactors (f);
+}
+@
+Desired@Desired@Example: // Desired edge length based tessellation:
+edge@edge@Example: // Desired edge length based tessellation:
+length@length@Example: // Desired edge length based tessellation:
+based@based@Example: // Desired edge length based tessellation:
+tessellation@tessellation@Example: // Desired edge length based tessellation:
+Approximate@Approximate@Example: // Approximate resulting edge length in pixels is "edgeLength".
+resulting@resulting@Example: // Approximate resulting edge length in pixels is "edgeLength".
+edge@edge@Example: // Approximate resulting edge length in pixels is "edgeLength".
+length@length@Example: // Approximate resulting edge length in pixels is "edgeLength".
+pixels@pixels@Example: // Approximate resulting edge length in pixels is "edgeLength".
+edgeLength@edgeLength@Example: // Approximate resulting edge length in pixels is "edgeLength".
+Does@Does@Example: // Does not take viewing FOV into account, just flat out divides factor by distance.
+take@take@Example: // Does not take viewing FOV into account, just flat out divides factor by distance.
+viewing@viewing@Example: // Does not take viewing FOV into account, just flat out divides factor by distance.
+into@into@Example: // Does not take viewing FOV into account, just flat out divides factor by distance.
+account@account@Example: // Does not take viewing FOV into account, just flat out divides factor by distance.
+just@just@Example: // Does not take viewing FOV into account, just flat out divides factor by distance.
+flat@flat@Example: // Does not take viewing FOV into account, just flat out divides factor by distance.
+divides@divides@Example: // Does not take viewing FOV into account, just flat out divides factor by distance.
+factor@factor@Example: // Does not take viewing FOV into account, just flat out divides factor by distance.
+distance@distance@Example: // Does not take viewing FOV into account, just flat out divides factor by distance.
+UnityEdgeLengthBasedTess(float4v0,float4v1,float4v2,floatedgeLength)@UnityEdgeLengthBasedTess (float4 v0, float4 v1, float4 v2, float edgeLength)@@Body: float4 UnityEdgeLengthBasedTess (float4 v0, float4 v1, float4 v2, float edgeLength)
+{
+float3 pos0 = mul(_Object2World,v0).xyz;
+float3 pos1 = mul(_Object2World,v1).xyz;
+float3 pos2 = mul(_Object2World,v2).xyz;
+float4 tess;
+tess.x = UnityCalcEdgeTessFactor (pos1, pos2, edgeLength);
+tess.y = UnityCalcEdgeTessFactor (pos2, pos0, edgeLength);
+tess.z = UnityCalcEdgeTessFactor (pos0, pos1, edgeLength);
+tess.w = (tess.x + tess.y + tess.z) / 3.0f;
+return tess;
+}
+@
+Same@Same@Example: // Same as UnityEdgeLengthBasedTess, but also does patch frustum culling:
+UnityEdgeLengthBasedTess@UnityEdgeLengthBasedTess@Example: // Same as UnityEdgeLengthBasedTess, but also does patch frustum culling:
+also@also@Example: // Same as UnityEdgeLengthBasedTess, but also does patch frustum culling:
+does@does@Example: // Same as UnityEdgeLengthBasedTess, but also does patch frustum culling:
+patch@patch@Example: // Same as UnityEdgeLengthBasedTess, but also does patch frustum culling:
+frustum@frustum@Example: // Same as UnityEdgeLengthBasedTess, but also does patch frustum culling:
+culling@culling@Example: // Same as UnityEdgeLengthBasedTess, but also does patch frustum culling:
+patches@patches@Example: // patches outside of camera's view are culled before GPU tessellation. Saves some wasted work.
+outside@outside@Example: // patches outside of camera's view are culled before GPU tessellation. Saves some wasted work.
+camera's@camera's@Example: // patches outside of camera's view are culled before GPU tessellation. Saves some wasted work.
+view@view@Example: // patches outside of camera's view are culled before GPU tessellation. Saves some wasted work.
+culled@culled@Example: // patches outside of camera's view are culled before GPU tessellation. Saves some wasted work.
+before@before@Example: // patches outside of camera's view are culled before GPU tessellation. Saves some wasted work.
+tessellation@tessellation@Example: // patches outside of camera's view are culled before GPU tessellation. Saves some wasted work.
+Saves@Saves@Example: // patches outside of camera's view are culled before GPU tessellation. Saves some wasted work.
+some@some@Example: // patches outside of camera's view are culled before GPU tessellation. Saves some wasted work.
+wasted@wasted@Example: // patches outside of camera's view are culled before GPU tessellation. Saves some wasted work.
+work@work@Example: // patches outside of camera's view are culled before GPU tessellation. Saves some wasted work.
+UnityEdgeLengthBasedTessCull(float4v0,float4v1,float4v2,floatedgeLength,floatmaxDisplacement)@UnityEdgeLengthBasedTessCull (float4 v0, float4 v1, float4 v2, float edgeLength, float maxDisplacement)@@Body: float4 UnityEdgeLengthBasedTessCull (float4 v0, float4 v1, float4 v2, float edgeLength, float maxDisplacement)
+{
+float3 pos0 = mul(_Object2World,v0).xyz;
+float3 pos1 = mul(_Object2World,v1).xyz;
+float3 pos2 = mul(_Object2World,v2).xyz;
+float4 tess;
+if (UnityWorldViewFrustumCull(pos0, pos1, pos2, maxDisplacement))
+	
+{
+tess = 0.0f;
+
+}
+else
+{
+tess.x = UnityCalcEdgeTessFactor (pos1, pos2, edgeLength);
+tess.y = UnityCalcEdgeTessFactor (pos2, pos0, edgeLength);
+tess.z = UnityCalcEdgeTessFactor (pos0, pos1, edgeLength);
+tess.w = (tess.x + tess.y + tess.z) / 3.0f;
+
+}
+return tess;
+}
+@
+#endif@#endif@Example: #endif // TESSELLATION_CGINC_INCLUDED
+TESSELLATION_CGINC_INCLUDED@TESSELLATION_CGINC_INCLUDED@Example: #endif // TESSELLATION_CGINC_INCLUDED

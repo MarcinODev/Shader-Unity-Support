@@ -1,0 +1,205 @@
+#ifndef@#ifndef@Example: #ifndef UNITY_CG_INCLUDED
+UNITY_CG_INCLUDED@UNITY_CG_INCLUDED@Example: #ifndef UNITY_CG_INCLUDED
+UNITY_CG_INCLUDED@UNITY_CG_INCLUDED@Body: #define UNITY_CG_INCLUDED
+Common@Common@Example: // Common functions
+functions@functions@Example: // Common functions
+saturate(floatx)@saturate(float x) @@Body: float saturate(float x) 
+{
+return max(0.0, min(1.0, x));
+
+}
+@
+builtin@builtin@Example: //  builtin values exposed from Unity
+values@values@Example: //  builtin values exposed from Unity
+exposed@exposed@Example: //  builtin values exposed from Unity
+from@from@Example: //  builtin values exposed from Unity
+Unity@Unity@Example: //  builtin values exposed from Unity
+Time@Time@Example: // Time values from Unity
+values@values@Example: // Time values from Unity
+from@from@Example: // Time values from Unity
+Unity@Unity@Example: // Time values from Unity
+uniform@uniform@Example: uniform vec4 _Time;
+vec4@vec4@Example: uniform vec4 _Time;
+_Time@_Time@Example: uniform vec4 _Time;
+uniform@uniform@Example: uniform vec4 _SinTime;
+vec4@vec4@Example: uniform vec4 _SinTime;
+_SinTime@_SinTime@Example: uniform vec4 _SinTime;
+uniform@uniform@Example: uniform vec4 _CosTime;
+vec4@vec4@Example: uniform vec4 _CosTime;
+_CosTime@_CosTime@Example: uniform vec4 _CosTime;
+projection@projection@Example: // x = 1 or -1 (-1 if projection is flipped)
+flipped@flipped@Example: // x = 1 or -1 (-1 if projection is flipped)
+near@near@Example: // y = near plane
+plane@plane@Example: // y = near plane
+plane@plane@Example: // z = far plane
+plane@plane@Example: // w = 1/far plane
+uniform@uniform@Example: uniform vec4 _ProjectionParams;
+vec4@vec4@Example: uniform vec4 _ProjectionParams;
+_ProjectionParams@_ProjectionParams@Example: uniform vec4 _ProjectionParams;
+width@width@Example: // x = width
+height@height@Example: // y = height
+width@width@Example: // z = 1 + 1.0/width
+height@height@Example: // w = 1 + 1.0/height
+uniform@uniform@Example: uniform vec4 _ScreenParams;
+vec4@vec4@Example: uniform vec4 _ScreenParams;
+_ScreenParams@_ScreenParams@Example: uniform vec4 _ScreenParams;
+uniform@uniform@Example: // w = 1 / uniform scale
+scale@scale@Example: // w = 1 / uniform scale
+uniform@uniform@Example: uniform vec4 unity_Scale;
+vec4@vec4@Example: uniform vec4 unity_Scale;
+unity_Scale@unity_Scale@Example: uniform vec4 unity_Scale;
+uniform@uniform@Example: uniform vec3 _WorldSpaceCameraPos;
+vec3@vec3@Example: uniform vec3 _WorldSpaceCameraPos;
+_WorldSpaceCameraPos@_WorldSpaceCameraPos@Example: uniform vec3 _WorldSpaceCameraPos;
+uniform@uniform@Example: uniform vec4 _WorldSpaceLightPos0;
+vec4@vec4@Example: uniform vec4 _WorldSpaceLightPos0;
+_WorldSpaceLightPos0@_WorldSpaceLightPos0@Example: uniform vec4 _WorldSpaceLightPos0;
+uniform@uniform@Example: uniform mat4 _Object2World, _World2Object;
+mat4@mat4@Example: uniform mat4 _Object2World, _World2Object;
+_Object2World@_Object2World@Example: uniform mat4 _Object2World, _World2Object;
+_World2Object@_World2Object@Example: uniform mat4 _Object2World, _World2Object;
+uniform@uniform@Example: uniform vec4 _LightPositionRange;
+vec4@vec4@Example: uniform vec4 _LightPositionRange;
+_LightPositionRange@_LightPositionRange@Example: uniform vec4 _LightPositionRange;
+range@range@Example: // xyz = pos, w = 1/range
+helper@helper@Example: //  helper functions and macros used in many standard shaders
+functions@functions@Example: //  helper functions and macros used in many standard shaders
+macros@macros@Example: //  helper functions and macros used in many standard shaders
+used@used@Example: //  helper functions and macros used in many standard shaders
+many@many@Example: //  helper functions and macros used in many standard shaders
+standard@standard@Example: //  helper functions and macros used in many standard shaders
+shaders@shaders@Example: //  helper functions and macros used in many standard shaders
+defined@defined@Example: #if defined DIRECTIONAL || defined DIRECTIONAL_COOKIE
+DIRECTIONAL@DIRECTIONAL@Example: #if defined DIRECTIONAL || defined DIRECTIONAL_COOKIE
+defined@defined@Example: #if defined DIRECTIONAL || defined DIRECTIONAL_COOKIE
+DIRECTIONAL_COOKIE@DIRECTIONAL_COOKIE@Example: #if defined DIRECTIONAL || defined DIRECTIONAL_COOKIE
+USING_DIRECTIONAL_LIGHT@USING_DIRECTIONAL_LIGHT@Body: #define USING_DIRECTIONAL_LIGHT
+#endif@#endif@Body: #endif
+defined@defined@Example: #if defined DIRECTIONAL || defined DIRECTIONAL_COOKIE || defined POINT || defined SPOT || defined POINT_NOATT || defined POINT_COOKIE
+DIRECTIONAL@DIRECTIONAL@Example: #if defined DIRECTIONAL || defined DIRECTIONAL_COOKIE || defined POINT || defined SPOT || defined POINT_NOATT || defined POINT_COOKIE
+defined@defined@Example: #if defined DIRECTIONAL || defined DIRECTIONAL_COOKIE || defined POINT || defined SPOT || defined POINT_NOATT || defined POINT_COOKIE
+DIRECTIONAL_COOKIE@DIRECTIONAL_COOKIE@Example: #if defined DIRECTIONAL || defined DIRECTIONAL_COOKIE || defined POINT || defined SPOT || defined POINT_NOATT || defined POINT_COOKIE
+defined@defined@Example: #if defined DIRECTIONAL || defined DIRECTIONAL_COOKIE || defined POINT || defined SPOT || defined POINT_NOATT || defined POINT_COOKIE
+POINT@POINT@Example: #if defined DIRECTIONAL || defined DIRECTIONAL_COOKIE || defined POINT || defined SPOT || defined POINT_NOATT || defined POINT_COOKIE
+defined@defined@Example: #if defined DIRECTIONAL || defined DIRECTIONAL_COOKIE || defined POINT || defined SPOT || defined POINT_NOATT || defined POINT_COOKIE
+SPOT@SPOT@Example: #if defined DIRECTIONAL || defined DIRECTIONAL_COOKIE || defined POINT || defined SPOT || defined POINT_NOATT || defined POINT_COOKIE
+defined@defined@Example: #if defined DIRECTIONAL || defined DIRECTIONAL_COOKIE || defined POINT || defined SPOT || defined POINT_NOATT || defined POINT_COOKIE
+POINT_NOATT@POINT_NOATT@Example: #if defined DIRECTIONAL || defined DIRECTIONAL_COOKIE || defined POINT || defined SPOT || defined POINT_NOATT || defined POINT_COOKIE
+defined@defined@Example: #if defined DIRECTIONAL || defined DIRECTIONAL_COOKIE || defined POINT || defined SPOT || defined POINT_NOATT || defined POINT_COOKIE
+POINT_COOKIE@POINT_COOKIE@Example: #if defined DIRECTIONAL || defined DIRECTIONAL_COOKIE || defined POINT || defined SPOT || defined POINT_NOATT || defined POINT_COOKIE
+USING_LIGHT_MULTI_COMPILE@USING_LIGHT_MULTI_COMPILE@Body: #define USING_LIGHT_MULTI_COMPILE
+#endif@#endif@Body: #endif
+#ifdef@#ifdef@Example: #ifdef VERTEX
+VERTEX@VERTEX@Example: #ifdef VERTEX
+Computes@Computes@Example: // Computes world space light direction
+world@world@Example: // Computes world space light direction
+space@space@Example: // Computes world space light direction
+light@light@Example: // Computes world space light direction
+direction@direction@Example: // Computes world space light direction
+WorldSpaceLightDir(vec4v)@WorldSpaceLightDir( vec4 v )@@Body: vec3 WorldSpaceLightDir( vec4 v )
+{
+vec3 worldPos = (_Object2World * v).xyz;
+#ifndef USING_LIGHT_MULTI_COMPILE
+return _WorldSpaceLightPos0.xyz - worldPos * _WorldSpaceLightPos0.w;
+#else
+		#ifndef USING_DIRECTIONAL_LIGHT
+		return _WorldSpaceLightPos0.xyz - worldPos;
+#else
+		return _WorldSpaceLightPos0.xyz;
+#endif
+#endif
+}
+@
+Computes@Computes@Example: // Computes object space light direction
+object@object@Example: // Computes object space light direction
+space@space@Example: // Computes object space light direction
+light@light@Example: // Computes object space light direction
+direction@direction@Example: // Computes object space light direction
+ObjSpaceLightDir(vec4v)@ObjSpaceLightDir( vec4 v )@@Body: vec3 ObjSpaceLightDir( vec4 v )
+{
+vec3 objSpaceLightPos = (_World2Object * _WorldSpaceLightPos0).xyz;
+#ifndef USING_LIGHT_MULTI_COMPILE
+return objSpaceLightPos.xyz - v.xyz * _WorldSpaceLightPos0.w;
+#else
+		#ifndef USING_DIRECTIONAL_LIGHT
+		return objSpaceLightPos.xyz - v.xyz;
+#else
+		return objSpaceLightPos.xyz;
+#endif
+#endif
+}
+@
+Computes@Computes@Example: // Computes world space view direction
+world@world@Example: // Computes world space view direction
+space@space@Example: // Computes world space view direction
+view@view@Example: // Computes world space view direction
+direction@direction@Example: // Computes world space view direction
+WorldSpaceViewDir(vec4v)@WorldSpaceViewDir( vec4 v )@@Body: vec3 WorldSpaceViewDir( vec4 v )
+{
+return _WorldSpaceCameraPos.xyz - (_Object2World * v).xyz;
+}
+@
+Computes@Computes@Example: // Computes object space view direction
+object@object@Example: // Computes object space view direction
+space@space@Example: // Computes object space view direction
+view@view@Example: // Computes object space view direction
+direction@direction@Example: // Computes object space view direction
+ObjSpaceViewDir(vec4v)@ObjSpaceViewDir( vec4 v )@@Body: vec3 ObjSpaceViewDir( vec4 v )
+{
+vec3 objSpaceCameraPos = (_World2Object * vec4(_WorldSpaceCameraPos.xyz, 1.0)).xyz * unity_Scale.w;
+return objSpaceCameraPos - v.xyz;
+}
+@
+Declares@Declares@Example: // Declares 3x3 matrix 'rotation', filled with tangent space basis
+matrix@matrix@Example: // Declares 3x3 matrix 'rotation', filled with tangent space basis
+'rotation'@'rotation'@Example: // Declares 3x3 matrix 'rotation', filled with tangent space basis
+filled@filled@Example: // Declares 3x3 matrix 'rotation', filled with tangent space basis
+with@with@Example: // Declares 3x3 matrix 'rotation', filled with tangent space basis
+tangent@tangent@Example: // Declares 3x3 matrix 'rotation', filled with tangent space basis
+space@space@Example: // Declares 3x3 matrix 'rotation', filled with tangent space basis
+basis@basis@Example: // Declares 3x3 matrix 'rotation', filled with tangent space basis
+TANGENT_SPACE_ROTATION@TANGENT_SPACE_ROTATION@Body: #define TANGENT_SPACE_ROTATION \
+vec3@vec3@Example: vec3 binormal = cross( gl_Normal.xyz, Tangent.xyz ) * Tangent.w;
+binormal@binormal@Example: vec3 binormal = cross( gl_Normal.xyz, Tangent.xyz ) * Tangent.w;
+cross@cross@Example: vec3 binormal = cross( gl_Normal.xyz, Tangent.xyz ) * Tangent.w;
+gl_Normal@gl_Normal@Example: vec3 binormal = cross( gl_Normal.xyz, Tangent.xyz ) * Tangent.w;
+Tangent@Tangent@Example: vec3 binormal = cross( gl_Normal.xyz, Tangent.xyz ) * Tangent.w;
+Tangent@Tangent@Example: vec3 binormal = cross( gl_Normal.xyz, Tangent.xyz ) * Tangent.w;
+Transforms@Transforms@Example: // Transforms float2 UV by scale/bias property (new method)
+float2@float2@Example: // Transforms float2 UV by scale/bias property (new method)
+scale@scale@Example: // Transforms float2 UV by scale/bias property (new method)
+bias@bias@Example: // Transforms float2 UV by scale/bias property (new method)
+property@property@Example: // Transforms float2 UV by scale/bias property (new method)
+method@method@Example: // Transforms float2 UV by scale/bias property (new method)
+TRANSFORM_TEX(tex,name)@TRANSFORM_TEX(tex,name)@Body: #define TRANSFORM_TEX(tex,name) (tex.xy * name##_ST.xy + name##_ST.zw)
+Transforms@Transforms@Example: // Transforms float4 UV by a texture matrix (old method)
+float4@float4@Example: // Transforms float4 UV by a texture matrix (old method)
+texture@texture@Example: // Transforms float4 UV by a texture matrix (old method)
+matrix@matrix@Example: // Transforms float4 UV by a texture matrix (old method)
+method@method@Example: // Transforms float4 UV by a texture matrix (old method)
+TRANSFORM_UV(idx)@TRANSFORM_UV(idx)@Body: #define TRANSFORM_UV(idx) (gl_TextureMatrix[idx] * gl_TexCoord[0] ).xy
+#endif@#endif@Example: #endif // VERTEX
+VERTEX@VERTEX@Example: #endif // VERTEX
+Calculates@Calculates@Example: // Calculates UV offset for parallax bump mapping
+offset@offset@Example: // Calculates UV offset for parallax bump mapping
+parallax@parallax@Example: // Calculates UV offset for parallax bump mapping
+bump@bump@Example: // Calculates UV offset for parallax bump mapping
+mapping@mapping@Example: // Calculates UV offset for parallax bump mapping
+ParallaxOffset(floath,floatheight,vec3viewDir)@ParallaxOffset( float h, float height, vec3 viewDir )@@Body: vec2 ParallaxOffset( float h, float height, vec3 viewDir )
+{
+h = h * height - height/2.0;
+vec3 v = normalize(viewDir);
+v.z += 0.42;
+return h * (v.xy / v.z);
+}
+@
+Converts@Converts@Example: // Converts color to luminance (grayscale)
+color@color@Example: // Converts color to luminance (grayscale)
+luminance@luminance@Example: // Converts color to luminance (grayscale)
+grayscale@grayscale@Example: // Converts color to luminance (grayscale)
+Luminance(vec3c)@Luminance( vec3 c )@@Body: float Luminance( vec3 c )
+{
+return dot( c, vec3(0.22, 0.707, 0.071) );
+}
+@
+#endif@#endif@Body: #endif

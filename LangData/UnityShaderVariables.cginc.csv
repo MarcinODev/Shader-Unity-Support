@@ -1,0 +1,150 @@
+#ifndef@#ifndef@Example: #ifndef UNITY_SHADER_VARIABLES_INCLUDED
+UNITY_SHADER_VARIABLES_INCLUDED@UNITY_SHADER_VARIABLES_INCLUDED@Example: #ifndef UNITY_SHADER_VARIABLES_INCLUDED
+UNITY_SHADER_VARIABLES_INCLUDED@UNITY_SHADER_VARIABLES_INCLUDED@Body: #define UNITY_SHADER_VARIABLES_INCLUDED
+#include@#include@Example: #include "HLSLSupport.cginc"
+HLSLSupport@HLSLSupport@Example: #include "HLSLSupport.cginc"
+cginc@cginc@Example: #include "HLSLSupport.cginc"
+uniform@uniform@Example: uniform float4 _SinTime;
+float4@float4@Example: uniform float4 _SinTime;
+sampler2D_float@sampler2D_float@Example: uniform sampler2D_float _CameraDepthTexture;
+_SinTime@_SinTime@Example: uniform float4 _SinTime;
+uniform@uniform@Example: uniform float4 _CosTime;
+float4@float4@Example: uniform float4 _CosTime;
+_CosTime@_CosTime@Example: uniform float4 _CosTime;
+uniform@uniform@Example: uniform float4 unity_DeltaTime;
+float4@float4@Example: uniform float4 unity_DeltaTime;
+unity_DeltaTime@unity_DeltaTime@Example: uniform float4 unity_DeltaTime;
+smoothdt@smoothdt@Example: // dt, 1/dt, smoothdt, 1/smoothdt
+smoothdt@smoothdt@Example: // dt, 1/dt, smoothdt, 1/smoothdt
+uniform@uniform@Example: uniform float3 _WorldSpaceCameraPos;
+float3@float3@Example: uniform float3 _WorldSpaceCameraPos;
+_WorldSpaceCameraPos@_WorldSpaceCameraPos@Example: uniform float3 _WorldSpaceCameraPos;
+projection@projection@Example: // x = 1 or -1 (-1 if projection is flipped)
+flipped@flipped@Example: // x = 1 or -1 (-1 if projection is flipped)
+near@near@Example: // y = near plane
+plane@plane@Example: // y = near plane
+plane@plane@Example: // z = far plane
+plane@plane@Example: // w = 1/far plane
+uniform@uniform@Example: uniform float4 _ProjectionParams;
+float4@float4@Example: uniform float4 _ProjectionParams;
+_ProjectionParams@_ProjectionParams@Example: uniform float4 _ProjectionParams;
+width@width@Example: // x = width
+height@height@Example: // y = height
+width@width@Example: // z = 1 + 1.0/width
+height@height@Example: // w = 1 + 1.0/height
+uniform@uniform@Example: uniform float4 _ScreenParams;
+float4@float4@Example: uniform float4 _ScreenParams;
+_ScreenParams@_ScreenParams@Example: uniform float4 _ScreenParams;
+uniform@uniform@Example: uniform float4 _ZBufferParams;
+float4@float4@Example: uniform float4 _ZBufferParams;
+_ZBufferParams@_ZBufferParams@Example: uniform float4 _ZBufferParams;
+CBUFFER_END@CBUFFER_END@Body: CBUFFER_END
+CBUFFER_END@CBUFFER_END@Body: CBUFFER_END
+#else@#else@Body: #else
+#endif@#endif@Body: #endif
+uniform@uniform@Example: uniform float4 _LightPositionRange;
+float4@float4@Example: uniform float4 _LightPositionRange;
+_LightPositionRange@_LightPositionRange@Example: uniform float4 _LightPositionRange;
+range@range@Example: // xyz = pos, w = 1/range
+float4@float4@Example: float4 unity_4LightPosX0;
+unity_4LightPosX0@unity_4LightPosX0@Example: float4 unity_4LightPosX0;
+float4@float4@Example: float4 unity_4LightPosY0;
+unity_4LightPosY0@unity_4LightPosY0@Example: float4 unity_4LightPosY0;
+float4@float4@Example: float4 unity_4LightPosZ0;
+unity_4LightPosZ0@unity_4LightPosZ0@Example: float4 unity_4LightPosZ0;
+float4@float4@Example: float4 unity_4LightAtten0;
+unity_4LightAtten0@unity_4LightAtten0@Example: float4 unity_4LightAtten0;
+float4@float4@Example: float4 unity_LightColor[8];
+unity_LightColor[8]@unity_LightColor[8]@Example: float4 unity_LightColor[8];
+float4@float4@Example: float4 unity_LightPosition[8];
+unity_LightPosition[8]@unity_LightPosition[8]@Example: float4 unity_LightPosition[8];
+quadratic@quadratic@Example: // z = quadratic attenuation
+attenuation@attenuation@Example: // z = quadratic attenuation
+range^2@range^2@Example: // w = range^2
+float4@float4@Example: float4 unity_LightAtten[8];
+unity_LightAtten[8]@unity_LightAtten[8]@Example: float4 unity_LightAtten[8];
+float4@float4@Example: float4 unity_SpotDirection[8];
+unity_SpotDirection[8]@unity_SpotDirection[8]@Example: float4 unity_SpotDirection[8];
+lighting@lighting@Example: // SH lighting environment
+environment@environment@Example: // SH lighting environment
+float4@float4@Example: float4 unity_SHAr;
+unity_SHAr@unity_SHAr@Example: float4 unity_SHAr;
+float4@float4@Example: float4 unity_SHAg;
+unity_SHAg@unity_SHAg@Example: float4 unity_SHAg;
+float4@float4@Example: float4 unity_SHAb;
+unity_SHAb@unity_SHAb@Example: float4 unity_SHAb;
+float4@float4@Example: float4 unity_SHBr;
+unity_SHBr@unity_SHBr@Example: float4 unity_SHBr;
+float4@float4@Example: float4 unity_SHBg;
+unity_SHBg@unity_SHBg@Example: float4 unity_SHBg;
+float4@float4@Example: float4 unity_SHBb;
+unity_SHBb@unity_SHBb@Example: float4 unity_SHBb;
+float4@float4@Example: float4 unity_SHC;
+unity_SHC@unity_SHC@Example: float4 unity_SHC;
+CBUFFER_END@CBUFFER_END@Body: CBUFFER_END
+keeping@keeping@Example: // keeping those only for any existing shaders; remove in 4.0
+those@those@Example: // keeping those only for any existing shaders; remove in 4.0
+only@only@Example: // keeping those only for any existing shaders; remove in 4.0
+existing@existing@Example: // keeping those only for any existing shaders; remove in 4.0
+shaders@shaders@Example: // keeping those only for any existing shaders; remove in 4.0
+remove@remove@Example: // keeping those only for any existing shaders; remove in 4.0
+CBUFFER_END@CBUFFER_END@Body: CBUFFER_END
+float4@float4@Example: float4 unity_ShadowSplitSqRadii;
+unity_ShadowSplitSqRadii@unity_ShadowSplitSqRadii@Example: float4 unity_ShadowSplitSqRadii;
+float4@float4@Example: float4 unity_LightShadowBias;
+unity_LightShadowBias@unity_LightShadowBias@Example: float4 unity_LightShadowBias;
+float4@float4@Example: float4 _LightSplitsNear;
+_LightSplitsNear@_LightSplitsNear@Example: float4 _LightSplitsNear;
+float4@float4@Example: float4 _LightSplitsFar;
+_LightSplitsFar@_LightSplitsFar@Example: float4 _LightSplitsFar;
+float4x4@float4x4@Example: float4x4 unity_World2Shadow[4];
+unity_World2Shadow[4]@unity_World2Shadow[4]@Example: float4x4 unity_World2Shadow[4];
+float4@float4@Example: float4 _LightShadowData;
+_LightShadowData@_LightShadowData@Example: float4 _LightShadowData;
+float4@float4@Example: float4 unity_ShadowFadeCenterAndType;
+unity_ShadowFadeCenterAndType@unity_ShadowFadeCenterAndType@Example: float4 unity_ShadowFadeCenterAndType;
+CBUFFER_END@CBUFFER_END@Body: CBUFFER_END
+float4x4@float4x4@Example: float4x4 glstate_matrix_modelview0;
+glstate_matrix_modelview0@glstate_matrix_modelview0@Example: float4x4 glstate_matrix_modelview0;
+float4x4@float4x4@Example: float4x4 glstate_matrix_invtrans_modelview0;
+glstate_matrix_invtrans_modelview0@glstate_matrix_invtrans_modelview0@Example: float4x4 glstate_matrix_invtrans_modelview0;
+UNITY_MATRIX_MVP@UNITY_MATRIX_MVP@Body: #define UNITY_MATRIX_MVP glstate_matrix_mvp
+UNITY_MATRIX_MV@UNITY_MATRIX_MV@Body: #define UNITY_MATRIX_MV glstate_matrix_modelview0
+UNITY_MATRIX_IT_MV@UNITY_MATRIX_IT_MV@Body: #define UNITY_MATRIX_IT_MV glstate_matrix_invtrans_modelview0
+#else@#else@Body: #else
+uniform@uniform@Example: uniform float4x4 _World2Object;
+float4x4@float4x4@Example: uniform float4x4 _World2Object;
+_World2Object@_World2Object@Example: uniform float4x4 _World2Object;
+uniform@uniform@Example: uniform float4 unity_Scale;
+float4@float4@Example: uniform float4 unity_Scale;
+unity_Scale@unity_Scale@Example: uniform float4 unity_Scale;
+uniform@uniform@Example: // w = 1 / uniform scale
+scale@scale@Example: // w = 1 / uniform scale
+CBUFFER_END@CBUFFER_END@Body: CBUFFER_END
+UNITY_MATRIX_T_MV@UNITY_MATRIX_T_MV@Body: #define UNITY_MATRIX_T_MV glstate_matrix_transpose_modelview0
+#else@#else@Body: #else
+#endif@#endif@Body: #endif
+float4x4@float4x4@Example: float4x4 glstate_matrix_texture0;
+glstate_matrix_texture0@glstate_matrix_texture0@Example: float4x4 glstate_matrix_texture0;
+float4x4@float4x4@Example: float4x4 glstate_matrix_texture1;
+glstate_matrix_texture1@glstate_matrix_texture1@Example: float4x4 glstate_matrix_texture1;
+float4x4@float4x4@Example: float4x4 glstate_matrix_texture2;
+glstate_matrix_texture2@glstate_matrix_texture2@Example: float4x4 glstate_matrix_texture2;
+float4x4@float4x4@Example: float4x4 glstate_matrix_texture3;
+glstate_matrix_texture3@glstate_matrix_texture3@Example: float4x4 glstate_matrix_texture3;
+UNITY_MATRIX_TEXTURE@UNITY_MATRIX_TEXTURE@Body: #define UNITY_MATRIX_TEXTURE glstate_matrix_texture
+UNITY_MATRIX_TEXTURE0@UNITY_MATRIX_TEXTURE0@Body: #define UNITY_MATRIX_TEXTURE0 glstate_matrix_texture0
+UNITY_MATRIX_TEXTURE1@UNITY_MATRIX_TEXTURE1@Body: #define UNITY_MATRIX_TEXTURE1 glstate_matrix_texture1
+UNITY_MATRIX_TEXTURE2@UNITY_MATRIX_TEXTURE2@Body: #define UNITY_MATRIX_TEXTURE2 glstate_matrix_texture2
+UNITY_MATRIX_TEXTURE3@UNITY_MATRIX_TEXTURE3@Body: #define UNITY_MATRIX_TEXTURE3 glstate_matrix_texture3
+#else@#else@Body: #else
+float4@float4@Example: float4	 glstate_lightmodel_ambient;
+glstate_lightmodel_ambient@glstate_lightmodel_ambient@Example: float4	 glstate_lightmodel_ambient;
+UNITY_MATRIX_P@UNITY_MATRIX_P@Body: #define UNITY_MATRIX_P glstate_matrix_projection
+UNITY_LIGHTMODEL_AMBIENT@UNITY_LIGHTMODEL_AMBIENT@Body: #define UNITY_LIGHTMODEL_AMBIENT glstate_lightmodel_ambient
+#else@#else@Body: #else
+float4x4@float4x4@Example: float4x4 unity_MatrixVP;
+unity_MatrixVP@unity_MatrixVP@Example: float4x4 unity_MatrixVP;
+UNITY_MATRIX_V@UNITY_MATRIX_V@Body: #define UNITY_MATRIX_V unity_MatrixV
+UNITY_MATRIX_VP@UNITY_MATRIX_VP@Body: #define UNITY_MATRIX_VP unity_MatrixVP
+CBUFFER_END@CBUFFER_END@Body: CBUFFER_END

@@ -1,0 +1,200 @@
+#ifndef@#ifndef@Example: #ifndef LIGHTING_INCLUDED
+LIGHTING_INCLUDED@LIGHTING_INCLUDED@Example: #ifndef LIGHTING_INCLUDED
+LIGHTING_INCLUDED@LIGHTING_INCLUDED@Body: #define LIGHTING_INCLUDED
+fixed3@fixed3@Example: fixed3 Albedo;
+Albedo@Albedo@Example: fixed3 Albedo;
+fixed3@fixed3@Example: fixed3 Normal;
+Normal@Normal@Example: fixed3 Normal;
+fixed3@fixed3@Example: fixed3 Emission;
+Emission@Emission@Example: fixed3 Emission;
+half@half@Example: half Specular;
+Specular@Specular@Example: half Specular;
+fixed@fixed@Example: fixed Gloss;
+Gloss@Gloss@Example: fixed Gloss;
+fixed@fixed@Example: fixed Alpha;
+Alpha@Alpha@Example: fixed Alpha;
+#ifndef@#ifndef@Example: #ifndef USING_DIRECTIONAL_LIGHT
+USING_DIRECTIONAL_LIGHT@USING_DIRECTIONAL_LIGHT@Example: #ifndef USING_DIRECTIONAL_LIGHT
+defined@defined@Example: #if defined (DIRECTIONAL_COOKIE) || defined (DIRECTIONAL)
+DIRECTIONAL_COOKIE@DIRECTIONAL_COOKIE@Example: #if defined (DIRECTIONAL_COOKIE) || defined (DIRECTIONAL)
+defined@defined@Example: #if defined (DIRECTIONAL_COOKIE) || defined (DIRECTIONAL)
+DIRECTIONAL@DIRECTIONAL@Example: #if defined (DIRECTIONAL_COOKIE) || defined (DIRECTIONAL)
+USING_DIRECTIONAL_LIGHT@USING_DIRECTIONAL_LIGHT@Body: #define USING_DIRECTIONAL_LIGHT
+#endif@#endif@Body: #endif
+#endif@#endif@Body: #endif
+NOTE@NOTE@Example: // NOTE: you would think using half is fine here, but that would make
+would@would@Example: // NOTE: you would think using half is fine here, but that would make
+think@think@Example: // NOTE: you would think using half is fine here, but that would make
+using@using@Example: // NOTE: you would think using half is fine here, but that would make
+half@half@Example: // NOTE: you would think using half is fine here, but that would make
+fine@fine@Example: // NOTE: you would think using half is fine here, but that would make
+here@here@Example: // NOTE: you would think using half is fine here, but that would make
+that@that@Example: // NOTE: you would think using half is fine here, but that would make
+would@would@Example: // NOTE: you would think using half is fine here, but that would make
+make@make@Example: // NOTE: you would think using half is fine here, but that would make
+apply@apply@Example: // Cg apply some precision emulation, making the constants in the shader
+some@some@Example: // Cg apply some precision emulation, making the constants in the shader
+precision@precision@Example: // Cg apply some precision emulation, making the constants in the shader
+emulation@emulation@Example: // Cg apply some precision emulation, making the constants in the shader
+making@making@Example: // Cg apply some precision emulation, making the constants in the shader
+constants@constants@Example: // Cg apply some precision emulation, making the constants in the shader
+shader@shader@Example: // Cg apply some precision emulation, making the constants in the shader
+much@much@Example: // much different; and do some other stupidity that actually increases ALU
+different@different@Example: // much different; and do some other stupidity that actually increases ALU
+some@some@Example: // much different; and do some other stupidity that actually increases ALU
+other@other@Example: // much different; and do some other stupidity that actually increases ALU
+stupidity@stupidity@Example: // much different; and do some other stupidity that actually increases ALU
+that@that@Example: // much different; and do some other stupidity that actually increases ALU
+actually@actually@Example: // much different; and do some other stupidity that actually increases ALU
+increases@increases@Example: // much different; and do some other stupidity that actually increases ALU
+count@count@Example: // count on d3d9 at least. So we use float.
+d3d9@d3d9@Example: // count on d3d9 at least. So we use float.
+least@least@Example: // count on d3d9 at least. So we use float.
+float@float@Example: // count on d3d9 at least. So we use float.
+Also@Also@Example: // Also, the numbers in many components should be the same, but are changed
+numbers@numbers@Example: // Also, the numbers in many components should be the same, but are changed
+many@many@Example: // Also, the numbers in many components should be the same, but are changed
+components@components@Example: // Also, the numbers in many components should be the same, but are changed
+should@should@Example: // Also, the numbers in many components should be the same, but are changed
+same@same@Example: // Also, the numbers in many components should be the same, but are changed
+changed@changed@Example: // Also, the numbers in many components should be the same, but are changed
+very@very@Example: // very slightly in the last digit, to prevent Cg from mis-optimizing
+slightly@slightly@Example: // very slightly in the last digit, to prevent Cg from mis-optimizing
+last@last@Example: // very slightly in the last digit, to prevent Cg from mis-optimizing
+digit@digit@Example: // very slightly in the last digit, to prevent Cg from mis-optimizing
+prevent@prevent@Example: // very slightly in the last digit, to prevent Cg from mis-optimizing
+from@from@Example: // very slightly in the last digit, to prevent Cg from mis-optimizing
+optimizing@optimizing@Example: // very slightly in the last digit, to prevent Cg from mis-optimizing
+shader@shader@Example: // the shader (it tried to be super clever at saving one shader constant
+tried@tried@Example: // the shader (it tried to be super clever at saving one shader constant
+super@super@Example: // the shader (it tried to be super clever at saving one shader constant
+clever@clever@Example: // the shader (it tried to be super clever at saving one shader constant
+saving@saving@Example: // the shader (it tried to be super clever at saving one shader constant
+shader@shader@Example: // the shader (it tried to be super clever at saving one shader constant
+constant@constant@Example: // the shader (it tried to be super clever at saving one shader constant
+expense@expense@Example: // at expense of gazillion extra scalar moves). Saves about 6 ALU instructions
+gazillion@gazillion@Example: // at expense of gazillion extra scalar moves). Saves about 6 ALU instructions
+extra@extra@Example: // at expense of gazillion extra scalar moves). Saves about 6 ALU instructions
+scalar@scalar@Example: // at expense of gazillion extra scalar moves). Saves about 6 ALU instructions
+moves@moves@Example: // at expense of gazillion extra scalar moves). Saves about 6 ALU instructions
+Saves@Saves@Example: // at expense of gazillion extra scalar moves). Saves about 6 ALU instructions
+about@about@Example: // at expense of gazillion extra scalar moves). Saves about 6 ALU instructions
+instructions@instructions@Example: // at expense of gazillion extra scalar moves). Saves about 6 ALU instructions
+d3d9@d3d9@Example: // on d3d9 SM2.
+UNITY_DIRBASIS@UNITY_DIRBASIS@Body: #define UNITY_DIRBASIS \
+const@const@Example: const float3x3 unity_DirBasis = float3x3( \
+float3x3@float3x3@Example: const float3x3 unity_DirBasis = float3x3( \
+unity_DirBasis@unity_DirBasis@Example: const float3x3 unity_DirBasis = float3x3( \
+float3x3@float3x3@Example: const float3x3 unity_DirBasis = float3x3( \
+DirLightmapDiffuse(inhalf3x3dirBasis,fixed4color,fixed4scale,half3normal,boolsurfFuncWritesNormal,outhalf3scalePerBasisVector)@DirLightmapDiffuse(in half3x3 dirBasis, fixed4 color, fixed4 scale, half3 normal, bool surfFuncWritesNormal, out half3 scalePerBasisVector)@@Body: half3 DirLightmapDiffuse(in half3x3 dirBasis, fixed4 color, fixed4 scale, half3 normal, bool surfFuncWritesNormal, out half3 scalePerBasisVector)
+{
+half3 lm = DecodeLightmap (color);
+// will be compiled out (and so will the texture sample providing the value)
+// if it's not used in the lighting function, like in LightingLambert
+scalePerBasisVector = DecodeLightmap (scale);
+// will be compiled out when surface function does not write into o.Normal
+if (surfFuncWritesNormal)
+	
+{
+half3 normalInRnmBasis = saturate (mul (dirBasis, normal));
+lm *= dot (normalInRnmBasis, scalePerBasisVector);
+
+}
+return lm;
+}
+@
+fixed4@fixed4@Example: fixed4 _LightColor0;
+_LightColor0@_LightColor0@Example: fixed4 _LightColor0;
+fixed4@fixed4@Example: fixed4 _SpecColor;
+_SpecColor@_SpecColor@Example: fixed4 _SpecColor;
+LightingLambert(SurfaceOutputs,fixed3lightDir,fixedatten)@LightingLambert (SurfaceOutput s, fixed3 lightDir, fixed atten)@@Body: fixed4 LightingLambert (SurfaceOutput s, fixed3 lightDir, fixed atten)
+{
+fixed diff = max (0, dot (s.Normal, lightDir));
+fixed4 c;
+c.rgb = s.Albedo * _LightColor0.rgb * (diff * atten * 2);
+c.a = s.Alpha;
+return c;
+}
+@
+LightingLambert_PrePass(SurfaceOutputs,half4light)@LightingLambert_PrePass (SurfaceOutput s, half4 light)@@Body: fixed4 LightingLambert_PrePass (SurfaceOutput s, half4 light)
+{
+fixed4 c;
+c.rgb = s.Albedo * light.rgb;
+c.a = s.Alpha;
+return c;
+}
+@
+LightingLambert_DirLightmap(SurfaceOutputs,fixed4color,fixed4scale,boolsurfFuncWritesNormal)@LightingLambert_DirLightmap (SurfaceOutput s, fixed4 color, fixed4 scale, bool surfFuncWritesNormal)@@Body: half4 LightingLambert_DirLightmap (SurfaceOutput s, fixed4 color, fixed4 scale, bool surfFuncWritesNormal)
+{
+UNITY_DIRBASIS
+	half3 scalePerBasisVector;
+half3 lm = DirLightmapDiffuse (unity_DirBasis, color, scale, s.Normal, surfFuncWritesNormal, scalePerBasisVector);
+return half4(lm, 0);
+}
+@
+NOTE@NOTE@Example: // NOTE: some intricacy in shader compiler on some GLES2.0 platforms (iOS) needs 'viewDir' & 'h'
+some@some@Example: // NOTE: some intricacy in shader compiler on some GLES2.0 platforms (iOS) needs 'viewDir' & 'h'
+intricacy@intricacy@Example: // NOTE: some intricacy in shader compiler on some GLES2.0 platforms (iOS) needs 'viewDir' & 'h'
+shader@shader@Example: // NOTE: some intricacy in shader compiler on some GLES2.0 platforms (iOS) needs 'viewDir' & 'h'
+compiler@compiler@Example: // NOTE: some intricacy in shader compiler on some GLES2.0 platforms (iOS) needs 'viewDir' & 'h'
+some@some@Example: // NOTE: some intricacy in shader compiler on some GLES2.0 platforms (iOS) needs 'viewDir' & 'h'
+GLES2@GLES2@Example: // NOTE: some intricacy in shader compiler on some GLES2.0 platforms (iOS) needs 'viewDir' & 'h'
+platforms@platforms@Example: // NOTE: some intricacy in shader compiler on some GLES2.0 platforms (iOS) needs 'viewDir' & 'h'
+needs@needs@Example: // NOTE: some intricacy in shader compiler on some GLES2.0 platforms (iOS) needs 'viewDir' & 'h'
+'viewDir'@'viewDir'@Example: // NOTE: some intricacy in shader compiler on some GLES2.0 platforms (iOS) needs 'viewDir' & 'h'
+mediump@mediump@Example: // to be mediump instead of lowp, otherwise specular highlight becomes too bright.
+instead@instead@Example: // to be mediump instead of lowp, otherwise specular highlight becomes too bright.
+lowp@lowp@Example: // to be mediump instead of lowp, otherwise specular highlight becomes too bright.
+otherwise@otherwise@Example: // to be mediump instead of lowp, otherwise specular highlight becomes too bright.
+specular@specular@Example: // to be mediump instead of lowp, otherwise specular highlight becomes too bright.
+highlight@highlight@Example: // to be mediump instead of lowp, otherwise specular highlight becomes too bright.
+becomes@becomes@Example: // to be mediump instead of lowp, otherwise specular highlight becomes too bright.
+bright@bright@Example: // to be mediump instead of lowp, otherwise specular highlight becomes too bright.
+LightingBlinnPhong(SurfaceOutputs,fixed3lightDir,half3viewDir,fixedatten)@LightingBlinnPhong (SurfaceOutput s, fixed3 lightDir, half3 viewDir, fixed atten)@@Body: fixed4 LightingBlinnPhong (SurfaceOutput s, fixed3 lightDir, half3 viewDir, fixed atten)
+{
+half3 h = normalize (lightDir + viewDir);
+fixed diff = max (0, dot (s.Normal, lightDir));
+float nh = max (0, dot (s.Normal, h));
+float spec = pow (nh, s.Specular*128.0) * s.Gloss;
+fixed4 c;
+c.rgb = (s.Albedo * _LightColor0.rgb * diff + _LightColor0.rgb * _SpecColor.rgb * spec) * (atten * 2);
+c.a = s.Alpha + _LightColor0.a * _SpecColor.a * spec * atten;
+return c;
+}
+@
+LightingBlinnPhong_PrePass(SurfaceOutputs,half4light)@LightingBlinnPhong_PrePass (SurfaceOutput s, half4 light)@@Body: fixed4 LightingBlinnPhong_PrePass (SurfaceOutput s, half4 light)
+{
+fixed spec = light.a * s.Gloss;
+fixed4 c;
+c.rgb = (s.Albedo * light.rgb + light.rgb * _SpecColor.rgb * spec);
+c.a = s.Alpha + spec * _SpecColor.a;
+return c;
+}
+@
+LightingBlinnPhong_DirLightmap(SurfaceOutputs,fixed4color,fixed4scale,half3viewDir,boolsurfFuncWritesNormal,outhalf3specColor)@LightingBlinnPhong_DirLightmap (SurfaceOutput s, fixed4 color, fixed4 scale, half3 viewDir, bool surfFuncWritesNormal, out half3 specColor)@@Body: half4 LightingBlinnPhong_DirLightmap (SurfaceOutput s, fixed4 color, fixed4 scale, half3 viewDir, bool surfFuncWritesNormal, out half3 specColor)
+{
+UNITY_DIRBASIS
+	half3 scalePerBasisVector;
+half3 lm = DirLightmapDiffuse (unity_DirBasis, color, scale, s.Normal, surfFuncWritesNormal, scalePerBasisVector);
+half3 lightDir = normalize (scalePerBasisVector.x * unity_DirBasis[0] + scalePerBasisVector.y * unity_DirBasis[1] + scalePerBasisVector.z * unity_DirBasis[2]);
+half3 h = normalize (lightDir + viewDir);
+float nh = max (0, dot (s.Normal, h));
+float spec = pow (nh, s.Specular * 128.0);
+// specColor used outside in the forward path, compiled out in prepass
+specColor = lm * _SpecColor.rgb * s.Gloss * spec;
+// spec from the alpha component is used to calculate specular
+// in the Lighting*_Prepass function, it's not used in forward
+return half4(lm, spec);
+}
+@
+#ifdef@#ifdef@Example: #ifdef UNITY_CAN_COMPILE_TESSELLATION
+UNITY_CAN_COMPILE_TESSELLATION@UNITY_CAN_COMPILE_TESSELLATION@Example: #ifdef UNITY_CAN_COMPILE_TESSELLATION
+float@float@Example: float edge[3] : SV_TessFactor;
+edge[3]@edge[3]@Example: float edge[3] : SV_TessFactor;
+SV_TessFactor@SV_TessFactor@Example: float edge[3] : SV_TessFactor;
+float@float@Example: float inside : SV_InsideTessFactor;
+inside@inside@Example: float inside : SV_InsideTessFactor;
+SV_InsideTessFactor@SV_InsideTessFactor@Example: float inside : SV_InsideTessFactor;
+#endif@#endif@Example: #endif // UNITY_CAN_COMPILE_TESSELLATION
+UNITY_CAN_COMPILE_TESSELLATION@UNITY_CAN_COMPILE_TESSELLATION@Example: #endif // UNITY_CAN_COMPILE_TESSELLATION
+#endif@#endif@Body: #endif
